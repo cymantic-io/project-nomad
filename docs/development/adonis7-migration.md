@@ -40,9 +40,8 @@ The dependency smoke command checks the proxy trust regression, streamed JSON
 record preservation, tar round trips, and native sharp, SQLite and ZIM loading.
 It uses temporary files and an in-memory SQLite database.
 
-The original migration was exercised on Linux ARM64 with an isolated copy of
-an existing MySQL database: migrations, seeding, offline map rendering, Inertia
-navigation, and a complete local chat stream. The pre-migration and migrated
+Validation covered migrations and seeding against an isolated test database,
+offline map rendering, Inertia navigation, and a complete chat stream. The pre-migration and migrated
 compiled unit runs both passed 650 plain tests and 76 of 80 booted framework
 tests. The same four failures concern drug-label whitespace and mocked chat
 controller expectations.
@@ -52,5 +51,6 @@ its booted run is 77 of 81 with the same four existing failures.
 
 The source/JIT test runner's bootstrap import needs further investigation.
 Those comparison runs compiled the test sources to JavaScript in disposable
-containers before running the existing test entrypoint. AMD64 and the source
-test-runner path still need validation before this migration is merge-ready.
+containers before running the existing test entrypoint. Additional platform
+coverage and the source test-runner path still need validation before this
+migration is merge-ready.
