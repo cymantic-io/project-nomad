@@ -6,6 +6,7 @@
   "license": "Apache-2.0",
   "author": "Crosstalk Solutions, LLC",
   "scripts": {
+    "postinstall": "node scripts/patch_ts_exec.mjs",
     "start": "node bin/server.js",
     "build": "node ace build",
     "dev": "node ace serve --hmr",
@@ -20,7 +21,8 @@
     "work:model-downloads": "node ace queue:work --queue=model-downloads",
     "work:benchmarks": "node ace queue:work --queue=benchmarks",
     "work:all": "node ace queue:work --all",
-    "test:dependencies": "node tests/standalone/dependency_security_smoke.mjs"
+    "test:dependencies": "node tests/standalone/dependency_security_smoke.mjs",
+    "test:typescript": "node tests/standalone/typescript_loader_smoke.mjs"
   },
   "imports": {
     "#controllers/*": "./app/controllers/*.js",

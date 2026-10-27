@@ -109,6 +109,10 @@ export default defineConfig({
   */
   metaFiles: [
     {
+      pattern: 'scripts/patch_ts_exec.mjs',
+      reloadServer: false,
+    },
+    {
       pattern: 'resources/views/**/*.edge',
       reloadServer: false,
     },

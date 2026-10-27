@@ -15,12 +15,14 @@ RUN apt-get update && apt-get install -y \
 FROM base AS deps
 WORKDIR /app
 ADD admin/package.json admin/package-lock.json ./
+COPY admin/scripts/patch_ts_exec.mjs ./scripts/patch_ts_exec.mjs
 RUN npm ci
 
 # Production only deps stage
 FROM base AS production-deps
 WORKDIR /app
 ADD admin/package.json admin/package-lock.json ./
+COPY admin/scripts/patch_ts_exec.mjs ./scripts/patch_ts_exec.mjs
 RUN npm ci --omit=dev
 
 # Build stage
